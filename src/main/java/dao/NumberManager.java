@@ -1,6 +1,6 @@
 package dao;
 
-import model.Number;
+import model.Numbers;
 
 public interface NumberManager {
 
@@ -9,6 +9,6 @@ public interface NumberManager {
    *
    * @param number
    */
-  void save(Number number);
+  void save(Numbers number);
 
 }

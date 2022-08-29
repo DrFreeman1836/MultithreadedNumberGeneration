@@ -1,19 +1,15 @@
 import dao.NumberManager;
 import dao.impl.NumberDao;
 import java.util.Date;
-import model.Number;
+import model.Numbers;
 
 public class Application {
 
   public static void main(String[] args) {
 
-    Number n = new Number();
-    n.setDate(new Date());
-    n.setNumber(100);
+    Numbers n = Numbers.builder().number(100).date(new Date()).build();
 
-    Number n2 = new Number();
-    n2.setDate(new Date());
-    n2.setNumber(100);
+    Numbers n2 = Numbers.builder().number(100).date(new Date()).build();
 
     NumberManager manager = new NumberDao();
 
