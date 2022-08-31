@@ -1,5 +1,7 @@
 package storage;
 
+import java.util.List;
+
 public interface NumberStorageManager {
 
   /**
@@ -15,5 +17,12 @@ public interface NumberStorageManager {
    * @return
    */
   Integer getFirstNumber();
+
+  /**
+   * Get a list of numbers
+   *
+   * @return
+   */
+  List<Integer> getListNumbers();
 
 }

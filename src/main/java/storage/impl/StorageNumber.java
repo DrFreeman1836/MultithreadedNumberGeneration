@@ -1,5 +1,6 @@
 package storage.impl;
 
+import java.util.List;
 import java.util.Stack;
 import storage.NumberStorageManager;
 
@@ -15,5 +16,10 @@ public class StorageNumber implements NumberStorageManager {
   @Override
   public Integer getFirstNumber() {
     return numberStack.pop();
+  }
+
+  @Override
+  public List<Integer> getListNumbers() {
+    return numberStack.stream().toList();
   }
 }
