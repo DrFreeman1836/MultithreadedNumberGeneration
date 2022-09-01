@@ -1,14 +1,17 @@
 package service.writing;
 
 import dao.NumberDaoManager;
+import storage.impl.StorageNumber;
 
 public class ObserverNumberStore {
 
   private NumberDaoManager numberManager;
 
+  private StorageNumber storageNumber;
 
-  public ObserverNumberStore(NumberDaoManager numberManager) {
+  public ObserverNumberStore(NumberDaoManager numberManager, StorageNumber storageNumber) {
     this.numberManager = numberManager;
+    this.storageNumber = storageNumber;
   }
 
   private void saveNewNumber(Integer value) {
@@ -16,7 +19,7 @@ public class ObserverNumberStore {
   }
 
   /**
-   * Todo: реализовать слушателя хранилища чисел и запись в БД в 5 потоков
+   * Todo: реализовать запись в БД в 5 потоков
    */
 
 }

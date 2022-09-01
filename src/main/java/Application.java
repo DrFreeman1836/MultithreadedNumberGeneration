@@ -9,10 +9,11 @@ public class Application {
     //конфиги программы
 
     StorageNumber storageNumber = new StorageNumber();
-    ManagerGenerate managerGenerate = new ManagerGenerate(5);//new thread
+    ManagerGenerate managerGenerate = new ManagerGenerate(5);
     managerGenerate.startGenerate(storageNumber);
 
     //запись в бд в новом потоке
+
 
     //проверка истечения времени
     //managerGenerate.stopGenerate();

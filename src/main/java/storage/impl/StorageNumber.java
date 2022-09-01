@@ -15,12 +15,12 @@ public class StorageNumber implements NumberStorageManager {
   }
 
   @Override
-  public Integer getNumber() {
+  public synchronized Integer getNumber() {
     return queueNumbers.remove();
   }
 
   @Override
-  public List<Integer> getListNumbers() {
+  public synchronized List<Integer> getListNumbers() {
     return queueNumbers.stream().toList();
   }
 }
