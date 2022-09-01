@@ -1,25 +1,26 @@
 package storage.impl;
 
+import java.util.ArrayDeque;
+import java.util.Deque;
 import java.util.List;
-import java.util.Stack;
 import storage.NumberStorageManager;
 
 public class StorageNumber implements NumberStorageManager {
 
-  private final Stack<Integer> numberStack = new Stack<>();
+  private final Deque<Integer> queueNumbers = new ArrayDeque<>();
 
   @Override
-  public void addNumber(Integer value) {
-    numberStack.push(value);
+  public synchronized void addNumber(Integer value) {
+    queueNumbers.add(value);
   }
 
   @Override
-  public Integer getFirstNumber() {
-    return numberStack.pop();
+  public Integer getNumber() {
+    return queueNumbers.remove();
   }
 
   @Override
   public List<Integer> getListNumbers() {
-    return numberStack.stream().toList();
+    return queueNumbers.stream().toList();
   }
 }

@@ -5,18 +5,18 @@ import java.util.List;
 public interface NumberStorageManager {
 
   /**
-   * Add a number to the top
+   * Add a number
    *
    * @param value
    */
   void addNumber(Integer value);
 
   /**
-   * Delete and return the top number
+   * Delete and return a number
    *
    * @return
    */
-  Integer getFirstNumber();
+  Integer getNumber();
 
   /**
    * Get a list of numbers

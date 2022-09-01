@@ -1,19 +1,28 @@
-import dao.NumberDaoManager;
-import dao.impl.NumberDao;
-import model.Number;
-import service.GenerateNumbers;
-import storage.NumberStorageManager;
+import service.generate.ManagerGenerate;
 import storage.impl.StorageNumber;
 
-import java.util.Date;
-import java.util.concurrent.Executor;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
-import java.util.concurrent.Future;
 
 public class Application {
 
   public static void main(String[] args) {
+
+    //конфиги программы
+
+    StorageNumber storageNumber = new StorageNumber();
+    ManagerGenerate managerGenerate = new ManagerGenerate(5);//new thread
+    managerGenerate.startGenerate(storageNumber);
+
+    //запись в бд в новом потоке
+
+    //проверка истечения времени
+    //managerGenerate.stopGenerate();
+
+    //вывод инфы
+
+    //завершаем
+
+
+
 
 //    Number n = Number.builder().number(100).date(new Date()).build();
 //
@@ -23,22 +32,6 @@ public class Application {
 //
 //    manager.save(n);
 //    manager.save(n2);
-//
-//
-//
-//
-//    try {
-//      Thread.sleep(2000000000);
-//    } catch (InterruptedException e) {
-//      e.printStackTrace();
-//    }
-
-    NumberStorageManager storage = new StorageNumber();
-    ExecutorService exService = Executors.newFixedThreadPool(4);
-
-    for(int i = 0; i <= 3; i++){
-      exService.submit(new GenerateNumbers(storage));
-    }
 
     try {
       Thread.sleep(5_000);
@@ -46,9 +39,16 @@ public class Application {
       e.printStackTrace();
     }
 
-    exService.shutdownNow();
-    storage.getListNumbers().forEach(System.out::println);
-    System.out.println(storage.getListNumbers().size());
+    managerGenerate.stopGenerate();
+
+    try {
+      Thread.sleep(1_000);
+    } catch (InterruptedException e) {
+      e.printStackTrace();
+    }
+
+    storageNumber.getListNumbers().forEach(System.out::println);
+    System.out.println(storageNumber.getListNumbers().size());
     System.out.println("Всё");
 
 
