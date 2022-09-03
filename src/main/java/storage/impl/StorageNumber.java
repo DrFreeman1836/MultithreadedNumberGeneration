@@ -11,12 +11,17 @@ public class StorageNumber implements NumberStorageManager {
 
   @Override
   public synchronized void addNumber(Integer value) {
-    queueNumbers.add(value);
+    queueNumbers.addFirst(value);
   }
 
   @Override
-  public synchronized Integer getNumber() {
-    return queueNumbers.remove();
+  public Integer getNumber() {
+    return queueNumbers.peekLast();
+  }
+
+  @Override
+  public void removeNumber() {
+    queueNumbers.removeLast();
   }
 
   @Override

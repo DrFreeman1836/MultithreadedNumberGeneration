@@ -12,11 +12,18 @@ public interface NumberStorageManager {
   void addNumber(Integer value);
 
   /**
-   * Delete and return a number
+   * Return a number
    *
    * @return
    */
   Integer getNumber();
+
+  /**
+   * Delete a number
+   *
+   * @return
+   */
+  void removeNumber();
 
   /**
    * Get a list of numbers

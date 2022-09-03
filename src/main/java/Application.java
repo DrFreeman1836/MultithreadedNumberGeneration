@@ -1,4 +1,6 @@
+import dao.impl.NumberDao;
 import service.generate.ManagerGenerate;
+import service.writing.ManagerWritingNumber;
 import storage.impl.StorageNumber;
 
 
@@ -9,14 +11,18 @@ public class Application {
     //конфиги программы
 
     StorageNumber storageNumber = new StorageNumber();
+    NumberDao numberDao = new NumberDao();
     ManagerGenerate managerGenerate = new ManagerGenerate(5);
     managerGenerate.startGenerate(storageNumber);
 
     //запись в бд в новом потоке
+    ManagerWritingNumber managerWritingNumber = new ManagerWritingNumber();
+    managerWritingNumber.startWriting(storageNumber, numberDao);
 
 
     //проверка истечения времени
     //managerGenerate.stopGenerate();
+    //managerWritingNumber.stopWriting();
 
     //вывод инфы
 
@@ -41,6 +47,7 @@ public class Application {
     }
 
     managerGenerate.stopGenerate();
+    managerWritingNumber.stopWriting();
 
     try {
       Thread.sleep(1_000);

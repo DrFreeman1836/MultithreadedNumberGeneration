@@ -6,9 +6,9 @@ import storage.impl.StorageNumber;
 
 public class ManagerGenerate {
 
-  private final int countThread;
+  private int countThread;
 
-  private final ExecutorService exService;
+  private ExecutorService exService;
 
   public ManagerGenerate(int countThread) {
     this.countThread = countThread;
