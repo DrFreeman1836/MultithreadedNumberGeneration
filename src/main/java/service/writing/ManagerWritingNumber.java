@@ -1,6 +1,5 @@
 package service.writing;
 
-import dao.NumberDaoManager;
 import dao.impl.NumberDao;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
@@ -16,8 +15,9 @@ public class ManagerWritingNumber {
 
   public void startWriting(StorageNumber storageNumber, NumberDao numberDao) {
 
+    int[] temp = {0, 100_000, 200_000, 300_000, 400_000, 500_000};
     for (int i = 0; i < 5; i++) {
-      exService.submit(new WritingNumber(numberDao, storageNumber, 0, 300_000));
+      exService.submit(new WritingNumber(numberDao, storageNumber, temp[i+1], temp[i]));
     }
 
   }

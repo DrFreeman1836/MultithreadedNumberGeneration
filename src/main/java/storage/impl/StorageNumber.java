@@ -7,7 +7,8 @@ import storage.NumberStorageManager;
 
 public class StorageNumber implements NumberStorageManager {
 
-  private final Deque<Integer> queueNumbers = new ArrayDeque<>();
+  private Deque<Integer> queueNumbers = new ArrayDeque<>();
+  private Deque<Integer> queue = new ArrayDeque<>();
 
   @Override
   public synchronized void addNumber(Integer value) {
@@ -27,5 +28,16 @@ public class StorageNumber implements NumberStorageManager {
   @Override
   public synchronized List<Integer> getListNumbers() {
     return queueNumbers.stream().toList();
+  }
+
+
+
+  public void add(Integer value) {
+    queue.addFirst(value);
+  }
+
+
+  public  List<Integer> getList() {
+    return queue.stream().toList();
   }
 }

@@ -12,6 +12,7 @@ public class Application {
 
     StorageNumber storageNumber = new StorageNumber();
     NumberDao numberDao = new NumberDao();
+
     ManagerGenerate managerGenerate = new ManagerGenerate(5);
     managerGenerate.startGenerate(storageNumber);
 
@@ -57,6 +58,9 @@ public class Application {
 
     storageNumber.getListNumbers().forEach(System.out::println);
     System.out.println(storageNumber.getListNumbers().size());
+    System.out.println("===============");
+    storageNumber.getList().forEach(System.out::println);
+    System.out.println(storageNumber.getList().size());
     System.out.println("Всё");
 
 

@@ -25,19 +25,21 @@ public class WritingNumber implements Runnable {
   public void run() {
     while (true) {
       try {
+        Thread.sleep(500);
         if (Thread.interrupted()) {
           System.out.println("запись все");
           return;
         }
         Integer value = storage.getNumber();
         if(value == null) continue;
-        if (value <= min && value >= max) {
+        if (value >= min && value <= max) {
           storage.removeNumber();
-          System.out.println("записали" + value);
+          storage.add(value);
           //numberDao.save(null);//exception
         }
       } catch (Exception ex) {
         ex.printStackTrace();
+        return;
       }
     }
   }
