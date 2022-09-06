@@ -1,5 +1,6 @@
 package util;
 
+import config.Configuration;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
@@ -7,14 +8,11 @@ import java.sql.SQLException;
 
 public class DBConnection {
 
-    private static String url;
-    private static String username;
-    private static String password;
     private static volatile Connection connection;
 
   private DBConnection() {
     try {
-      connection= DriverManager.getConnection(url, username, password);
+      connection= DriverManager.getConnection(Configuration.getUrl(), Configuration.getUsername(), Configuration.getPassword());
     } catch (SQLException ex) {
       ex.printStackTrace();
     }
@@ -40,8 +38,3 @@ public class DBConnection {
   }
 
 }
-/**
- String url="jdbc:firebirdsql://localhost:3050/D:/test.FDB?lc_ctype=utf8";
- String username="sysdba";
- String password="1q2w3e4r";
- */

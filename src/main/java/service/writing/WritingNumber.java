@@ -26,16 +26,11 @@ public class WritingNumber implements Runnable {
     while (true) {
       try {
         Thread.sleep(500);
-        if (Thread.interrupted()) {
-          System.out.println("запись все");
-          return;
-        }
         Integer value = storage.getNumber();
         if(value == null) continue;
-        if (value >= min && value <= max) {
+        if (value > min && value <= max) {
           storage.removeNumber();
-          storage.add(value);
-          //numberDao.save(null);//exception
+          numberDao.save(value);
         }
       } catch (Exception ex) {
         ex.printStackTrace();

@@ -26,18 +26,8 @@ public class StorageNumber implements NumberStorageManager {
   }
 
   @Override
-  public synchronized List<Integer> getListNumbers() {
+  public List<Integer> getListNumbers() {
     return queueNumbers.stream().toList();
   }
 
-
-
-  public void add(Integer value) {
-    queue.addFirst(value);
-  }
-
-
-  public  List<Integer> getList() {
-    return queue.stream().toList();
-  }
 }

@@ -15,18 +15,14 @@ public class GenerateNumbers implements Runnable {
   @Override
   public void run() {
     while (true) {
-
       try {
         Thread.sleep(500);
+        int value = ThreadLocalRandom.current().nextInt(1, 500_001);
+        managerStorageNumber.addNumber(value);
       } catch (InterruptedException ex) {
         ex.printStackTrace();
         return;
       }
-      if (Thread.interrupted()) return;
-
-      int value = ThreadLocalRandom.current().nextInt(1, 500_001);
-      managerStorageNumber.addNumber(value);
-
     }
   }
 

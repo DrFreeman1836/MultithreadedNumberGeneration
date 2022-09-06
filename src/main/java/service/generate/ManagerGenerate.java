@@ -16,11 +16,9 @@ public class ManagerGenerate {
   }
 
   public void startGenerate(StorageNumber storage) {
-
     for (int i = 0; i < countThread; i++) {
       exService.submit(new GenerateNumbers(storage));
     }
-
   }
 
   public void stopGenerate() {

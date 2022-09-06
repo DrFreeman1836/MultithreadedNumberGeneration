@@ -13,7 +13,7 @@ public class NumberDao implements NumberDaoManager {
   public void save(Integer value) {
     try {
       Statement statement = DBConnection.getConnection().createStatement();
-      statement.executeUpdate("INSERT INTO \"Number\" (\"numberr\") VALUES ('" + value + "')");//дату
+      statement.executeUpdate("INSERT INTO \"Number\" (\"numberr\") VALUES ('" + value + "')");
       statement.close();
     }catch (SQLException ex) {
       ex.printStackTrace();
