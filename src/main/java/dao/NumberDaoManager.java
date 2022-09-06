@@ -1,14 +1,42 @@
 package dao;
 
-import model.Number;
 
 public interface NumberDaoManager {
 
   /**
-   * Save number
+   * Save a number
    *
-   * @param number
+   * @param value
    */
-  void save(Number number);
+  void save(Integer value);
+
+  /**
+   *
+   * @return
+   */
+  int countNumbers();
+
+  /**
+   *
+   * @return
+   */
+  int getMinNumber();
+
+  /**
+   *
+   * @return
+   */
+  int getMaxNumber();
+
+  /**
+   *
+   * @return
+   */
+  int getCountUniqueNumber();
+
+  /**
+   *
+   */
+  void deleteAllNumber();
 
 }
