@@ -36,7 +36,6 @@ public class Application {
     System.out.println("Минимальное значение: " + numberDao.getMinNumber());
     System.out.println("Кол-во уникальных значений: " + numberDao.getCountUniqueNumber());
 
-
     DBConnection.closeConnection();
 
   }

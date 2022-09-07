@@ -24,9 +24,9 @@ public class Configuration {
     url = (String) xpath.compile("//config//jdbc//url").evaluate(document, XPathConstants.STRING);
     username = (String) xpath.compile("//config//jdbc//username").evaluate(document, XPathConstants.STRING);
     password = (String) xpath.compile("//config//jdbc//password").evaluate(document, XPathConstants.STRING);
+    clearDB = Boolean.parseBoolean( (String) xpath.compile("//config//application//clearDB").evaluate(document, XPathConstants.STRING));
     countThreads = Integer.parseInt( (String) xpath.compile("//config//application//countThreads").evaluate(document, XPathConstants.STRING));
     workTime = Integer.parseInt( (String) xpath.compile("//config//application//workTime").evaluate(document, XPathConstants.STRING));
-    clearDB = (boolean) xpath.compile("//config//application//clearDB").evaluate(document, XPathConstants.BOOLEAN);
     input.close();
   }
 

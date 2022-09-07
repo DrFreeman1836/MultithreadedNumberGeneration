@@ -6,7 +6,7 @@
     <password>1q2w3e4r</password>
   </jdbc>
   <application>
-    <countThreads>5</countThreads>
+    <countThreads>2</countThreads>
     <workTime>5000</workTime>
     <clearDB>true</clearDB>
   </application>
