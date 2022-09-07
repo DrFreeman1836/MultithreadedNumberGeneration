@@ -8,7 +8,6 @@ import storage.NumberStorageManager;
 public class StorageNumber implements NumberStorageManager {
 
   private Deque<Integer> queueNumbers = new ArrayDeque<>();
-  private Deque<Integer> queue = new ArrayDeque<>();
 
   @Override
   public synchronized void addNumber(Integer value) {
