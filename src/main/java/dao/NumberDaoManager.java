@@ -14,7 +14,7 @@ public interface NumberDaoManager {
    *
    * @return
    */
-  int countNumbers();
+  int getCountNumbers();
 
   /**
    *

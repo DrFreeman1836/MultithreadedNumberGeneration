@@ -49,4 +49,8 @@ public class Configuration {
   public static boolean isClearDB() {
     return clearDB;
   }
+
+  public static int getWorkTime() {
+    return workTime;
+  }
 }

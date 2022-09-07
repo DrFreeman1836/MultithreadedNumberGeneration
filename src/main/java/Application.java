@@ -10,33 +10,34 @@ public class Application {
 
   public static void main(String[] args) throws Exception {
 
+    long start = System.currentTimeMillis();
     Configuration.setConfiguration();
 
     StorageNumber storageNumber = new StorageNumber();
     NumberDao numberDao = new NumberDao();
+    if(Configuration.isClearDB()) numberDao.deleteAllNumber();
 
-    //генерирование
     ManagerGenerate managerGenerate = new ManagerGenerate(Configuration.getCountThreads());
     managerGenerate.startGenerate(storageNumber);
 
-    //запись в бд
     ManagerWritingNumber managerWritingNumber = new ManagerWritingNumber();
     managerWritingNumber.startWriting(storageNumber, numberDao);
 
-    //проверка истечения времени
-//    while (true){
-//
-//    }
+    while (true){
+      if(System.currentTimeMillis() - start >= Configuration.getWorkTime()){
+        managerGenerate.stopGenerate();
+        managerWritingNumber.stopWriting();
+        break;
+      }
+    }
 
-    //завершить потоки
-    managerGenerate.stopGenerate();
-    managerWritingNumber.stopWriting();
+    System.out.println("Кол-во записей: " + numberDao.getCountNumbers());
+    System.out.println("Максимальное значение: " + numberDao.getMaxNumber());
+    System.out.println("Минимальное значение: " + numberDao.getMinNumber());
+    System.out.println("Кол-во уникальных значений: " + numberDao.getCountUniqueNumber());
 
-    //вывод инфы
 
-    //завершаем
     DBConnection.closeConnection();
-
 
   }
 
