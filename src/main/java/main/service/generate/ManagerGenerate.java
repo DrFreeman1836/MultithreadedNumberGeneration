@@ -1,8 +1,8 @@
-package service.generate;
+package main.service.generate;
 
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
-import storage.impl.StorageNumber;
+import main.storage.impl.StorageNumber;
 
 public class ManagerGenerate {
 

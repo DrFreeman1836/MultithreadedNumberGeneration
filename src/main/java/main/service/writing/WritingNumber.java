@@ -1,7 +1,7 @@
-package service.writing;
+package main.service.writing;
 
-import dao.impl.NumberDao;
-import storage.impl.StorageNumber;
+import main.dao.impl.NumberDao;
+import main.storage.impl.StorageNumber;
 
 public class WritingNumber implements Runnable {
 

@@ -1,6 +1,6 @@
-package service.generate;
+package main.service.generate;
 
-import storage.NumberStorageManager;
+import main.storage.NumberStorageManager;
 
 import java.util.concurrent.ThreadLocalRandom;
 

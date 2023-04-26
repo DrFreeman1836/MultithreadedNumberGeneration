@@ -1,4 +1,4 @@
-package config;
+package main.config;
 
 import java.io.InputStream;
 import javax.xml.parsers.DocumentBuilderFactory;
@@ -13,6 +13,7 @@ public class Configuration {
   private static String url;
   private static String username;
   private static String password;
+  private static int maxConnection;
   private static int countThreads;
   private static int workTime;
   private static boolean clearDB;
@@ -24,6 +25,7 @@ public class Configuration {
     url = (String) xpath.compile("//config//jdbc//url").evaluate(document, XPathConstants.STRING);
     username = (String) xpath.compile("//config//jdbc//username").evaluate(document, XPathConstants.STRING);
     password = (String) xpath.compile("//config//jdbc//password").evaluate(document, XPathConstants.STRING);
+    maxConnection = Integer.parseInt( (String) xpath.compile("//config//jdbc//maxConnection").evaluate(document, XPathConstants.STRING));
     clearDB = Boolean.parseBoolean( (String) xpath.compile("//config//application//clearDB").evaluate(document, XPathConstants.STRING));
     countThreads = Integer.parseInt( (String) xpath.compile("//config//application//countThreads").evaluate(document, XPathConstants.STRING));
     workTime = Integer.parseInt( (String) xpath.compile("//config//application//workTime").evaluate(document, XPathConstants.STRING));
@@ -52,5 +54,9 @@ public class Configuration {
 
   public static int getWorkTime() {
     return workTime;
+  }
+
+  public static int getMaxConnection() {
+    return maxConnection;
   }
 }

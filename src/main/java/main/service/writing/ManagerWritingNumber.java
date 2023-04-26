@@ -1,9 +1,9 @@
-package service.writing;
+package main.service.writing;
 
-import dao.impl.NumberDao;
+import main.dao.impl.NumberDao;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
-import storage.impl.StorageNumber;
+import main.storage.impl.StorageNumber;
 
 public class ManagerWritingNumber {
 
