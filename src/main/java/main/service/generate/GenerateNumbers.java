@@ -3,11 +3,17 @@ package main.service.generate;
 import main.storage.NumberStorageManager;
 
 import java.util.concurrent.ThreadLocalRandom;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Scope;
+import org.springframework.stereotype.Component;
 
+@Component
+@Scope("prototype")
 public class GenerateNumbers implements Runnable {
 
   private NumberStorageManager managerStorageNumber;
 
+  @Autowired
   public GenerateNumbers(NumberStorageManager managerStorageNumber) {
     this.managerStorageNumber = managerStorageNumber;
   }

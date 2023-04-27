@@ -8,7 +8,7 @@
   </jdbc>
   <application>
     <countThreads>3</countThreads>
-    <workTime>5000</workTime>
+    <workTime>10000</workTime>
     <clearDB>true</clearDB>
   </application>
 </config>
