@@ -39,10 +39,6 @@ public class Application {
       }
     }
 
-
-    storageNumber.getListNumbers().forEach(System.out::println);
-    System.out.println("==========================");
-    System.out.println(storageNumber.getListNumbers().size());
     System.out.println("Кол-во записей: " + numberDao.getCountNumbers());
     System.out.println("Максимальное значение: " + numberDao.getMaxNumber());
     System.out.println("Минимальное значение: " + numberDao.getMinNumber());
