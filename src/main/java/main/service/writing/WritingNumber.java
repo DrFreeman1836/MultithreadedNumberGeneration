@@ -2,12 +2,7 @@ package main.service.writing;
 
 import main.dao.impl.NumberDao;
 import main.storage.impl.StorageNumber;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Scope;
-import org.springframework.stereotype.Component;
 
-@Component
-@Scope("prototype")
 public class WritingNumber implements Runnable {
 
   private NumberDao numberDao;
@@ -18,18 +13,10 @@ public class WritingNumber implements Runnable {
 
   private int min;
 
-
-  @Autowired
-  public WritingNumber(NumberDao numberDao, StorageNumber storage) {
+  public WritingNumber(NumberDao numberDao, StorageNumber storage, int max, int min) {
     this.numberDao = numberDao;
     this.storage = storage;
-  }
-
-  public void setMax(int max) {
     this.max = max;
-  }
-
-  public void setMin(int min) {
     this.min = min;
   }
 

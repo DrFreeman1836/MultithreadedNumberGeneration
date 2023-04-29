@@ -22,7 +22,6 @@ public class Application {
     NumberDao numberDao = context.getBean(NumberDao.class);
     StorageNumber storageNumber = context.getBean(StorageNumber.class);
     ManagerWritingNumber managerWritingNumber = context.getBean(ManagerWritingNumber.class);
-    WritingNumber writingNumber = context.getBean(WritingNumber.class);
     ManagerGenerate managerGenerate = context.getBean(ManagerGenerate.class);
     GenerateNumbers generateNumbers = context.getBean(GenerateNumbers.class);
 
@@ -32,8 +31,8 @@ public class Application {
     managerGenerate.startGenerate();
     managerWritingNumber.startWriting();
 
-    while (true){
-      if(System.currentTimeMillis() - start >= Configuration.getWorkTime()){
+    while (true) {
+      if (System.currentTimeMillis() - start >= Configuration.getWorkTime()) {
         managerGenerate.stopGenerate();
         managerWritingNumber.stopWriting();
         break;
@@ -41,6 +40,9 @@ public class Application {
     }
 
 
+    storageNumber.getListNumbers().forEach(System.out::println);
+    System.out.println("==========================");
+    System.out.println(storageNumber.getListNumbers().size());
     System.out.println("Кол-во записей: " + numberDao.getCountNumbers());
     System.out.println("Максимальное значение: " + numberDao.getMaxNumber());
     System.out.println("Минимальное значение: " + numberDao.getMinNumber());
