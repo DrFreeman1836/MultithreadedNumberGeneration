@@ -1,10 +1,12 @@
-package storage.impl;
+package main.storage.impl;
 
 import java.util.ArrayDeque;
 import java.util.Deque;
 import java.util.List;
-import storage.NumberStorageManager;
+import main.storage.NumberStorageManager;
+import org.springframework.stereotype.Component;
 
+@Component
 public class StorageNumber implements NumberStorageManager {
 
   private Deque<Integer> queueNumbers = new ArrayDeque<>();

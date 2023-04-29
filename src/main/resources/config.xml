@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <config>
   <jdbc>
-    <url>jdbc:firebirdsql://localhost:3050/D:/test.FDB?lc_ctype=utf8</url>
-    <username>sysdba</username>
-    <password>1q2w3e4r</password>
+    <url>jdbc:mysql://localhost:3306/gen_number</url>
+    <username>root</username>
+    <password>hWN-h2z-aPE-8dQ</password>
+    <maxConnection>5</maxConnection>
   </jdbc>
   <application>
     <countThreads>3</countThreads>

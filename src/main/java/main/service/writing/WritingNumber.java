@@ -1,7 +1,7 @@
-package service.writing;
+package main.service.writing;
 
-import dao.impl.NumberDao;
-import storage.impl.StorageNumber;
+import main.dao.impl.NumberDao;
+import main.storage.impl.StorageNumber;
 
 public class WritingNumber implements Runnable {
 
@@ -12,7 +12,6 @@ public class WritingNumber implements Runnable {
   private int max;
 
   private int min;
-
 
   public WritingNumber(NumberDao numberDao, StorageNumber storage, int max, int min) {
     this.numberDao = numberDao;
